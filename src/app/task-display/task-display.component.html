@@ -1,0 +1,45 @@
+<main class="main">
+    <div class="content container">
+        <div class="row">
+            <div class="w-100 col flex-column">
+                <div class="row justify-content-center">
+                    <div class="list-group">
+                        @for (group of this.taskNames; track $index; let idx = $index){
+                        <div class="media border border-primary-subtle rounded-1">
+                            <div>
+                                <a href="/task-display" class="
+                                    list-group-item 
+                                    list-group-item-action 
+                                    flex-column 
+                                    align-items-start">
+                                    <h4>
+                                        {{ this.taskNames[idx] + ': '}}
+                                        <i class="bg-primary-subtle border border-primary-subtle rounded-3">
+                                            {{ this.tasks['task' + (idx + 1)].itemStatus }}
+                                        </i>
+                                    </h4>
+                                </a>
+                                <p>
+                                    {{ this.tasks['task' + (idx + 1)].itemNum + '. ' }}
+                                    <b>Name: </b>
+                                    {{ this.tasks['task' + (idx + 1)].itemName }} <br>
+                                    <b>Notes: </b>
+                                    {{ this.tasks['task' + (idx + 1)].itemNotes }} <br>
+                                    <b>Team: </b>
+                                    {{ this.tasks['task' + (idx + 1)].associatedTeam }}
+                                </p>
+                            </div>
+                            <form action="">
+                                <button class="btn btn-primary">Add Task to Sprint</button>
+                                <button class="btn btn-success">Assign User to Task</button>
+                            </form>
+                            <br>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
